@@ -26,6 +26,14 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+      Layers:
+        - !Ref RequestsLayer
+  RequestsLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      ContentUri: layers/layer_requests
+      CompatibleRuntimes:
+        - python3.8      
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
